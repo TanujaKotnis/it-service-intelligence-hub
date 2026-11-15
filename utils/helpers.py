@@ -15,7 +15,10 @@ def load_training_results() -> dict | None:
 
 
 def is_fine_tuned() -> bool:
-    return FINE_TUNED_PATH.exists()
+    return FINE_TUNED_PATH.exists() and any(
+        (FINE_TUNED_PATH / name).exists()
+        for name in ("model.safetensors", "pytorch_model.bin")
+    )
 
 
 def confidence_color(score: float) -> str:

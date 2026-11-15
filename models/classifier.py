@@ -41,9 +41,17 @@ CATEGORY_INFO = {
 }
 
 
+def _has_model_weights(path: Path) -> bool:
+    """Return True only if actual model weight files are present."""
+    return any(
+        (path / name).exists()
+        for name in ("model.safetensors", "pytorch_model.bin")
+    )
+
+
 def load_classifier():
     """Load fine-tuned model if available, otherwise use zero-shot classification."""
-    if FINE_TUNED_PATH.exists():
+    if FINE_TUNED_PATH.exists() and _has_model_weights(FINE_TUNED_PATH):
         print(f"Loading fine-tuned classifier from {FINE_TUNED_PATH}")
         return pipeline(
             "text-classification",
