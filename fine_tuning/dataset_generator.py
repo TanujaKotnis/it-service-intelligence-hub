@@ -64,6 +64,53 @@ PRINTER_TEMPLATES = [
     "Printed pages have a gray tint across the whole page. Looks like a drum issue.",
 ]
 
+# Backward-compatibility alias expected by app.py (dict form)
+TEMPLATES = {
+    "network_connectivity": [
+        "VPN connection fails with authentication error.",
+        "Cannot access corporate network after working remotely.",
+        "Wi-Fi disconnects every few minutes in the office.",
+        "Network drive shows as disconnected after login.",
+        "Internet is very slow on the corporate network today.",
+    ],
+    "software_installation": [
+        "Need to install Python for data analysis work.",
+        "SAP GUI keeps crashing after the latest update.",
+        "Microsoft Office license has expired on my laptop.",
+        "Software Center shows no applications available.",
+        "AutoCAD says no license available when I try to open it.",
+    ],
+    "hardware_malfunction": [
+        "Laptop screen flickers and sometimes goes black.",
+        "Keyboard keys are stuck and not responding.",
+        "Computer is running very slow and overheating.",
+        "USB ports on my laptop are not recognizing devices.",
+        "Monitor shows no signal when connected to docking station.",
+    ],
+    "security_incident": [
+        "I received a suspicious email asking for my credentials.",
+        "My account may have been accessed without my knowledge.",
+        "I accidentally clicked a phishing link in an email.",
+        "Unusual login activity detected on my account.",
+        "Ransomware warning appeared on my screen.",
+    ],
+    "account_access": [
+        "Cannot log in to my corporate account after password reset.",
+        "Account locked out after too many failed attempts.",
+        "MFA app is not generating codes on my new phone.",
+        "SSO redirect loop when accessing internal portals.",
+        "Need access to a shared mailbox for my new role.",
+    ],
+    "email_issues": [
+        "Outlook is not receiving new emails since this morning.",
+        "Cannot send emails — getting bounce-back errors.",
+        "Teams meeting audio is not working.",
+        "Shared calendar is not visible in Outlook.",
+        "Emails are going to recipients' spam folders.",
+    ],
+    "printer_problems": PRINTER_TEMPLATES,
+}
+
 
 def _load_hub_dataset():
     """Load and map the HuggingFace Hub dataset to our 7-class schema."""
