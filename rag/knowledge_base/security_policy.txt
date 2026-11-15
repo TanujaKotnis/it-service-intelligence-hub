@@ -1,0 +1,125 @@
+ACME CORP – IT SECURITY POLICY AND INCIDENT RESPONSE GUIDE
+Version 4.1 | Last Updated: September 2024
+Document Owner: Global Information Security Office (GISO)
+Classification: Internal Use Only
+
+==============================================================
+SECTION 1: PASSWORD AND AUTHENTICATION POLICY
+==============================================================
+
+1.1 Password Requirements
+All Acme corporate accounts must comply with the following:
+- Minimum length: 12 characters
+- Must include: uppercase, lowercase, numbers, and special characters
+- Cannot reuse last 12 passwords
+- Expiry: Every 90 days (service accounts: 365 days with justification)
+- Complexity exceptions are NOT permitted, including for temporary access.
+
+1.2 Multi-Factor Authentication (MFA)
+MFA is mandatory for all corporate accounts since January 2023.
+Supported MFA methods:
+- Microsoft Authenticator app (recommended — most secure)
+- SMS OTP (deprecated for new enrollments, existing users grandfathered until 2025)
+- Hardware FIDO2 key (required for privileged accounts)
+
+MFA Troubleshooting:
+1. Lost phone or new device: Call IT Helpdesk immediately for emergency bypass (valid 8 hours).
+2. MFA not received: Check phone signal; try "Sign in another way" for backup method.
+3. To add a new MFA method: visit https://aka.ms/mfasetup with existing authentication.
+
+1.3 Single Sign-On (SSO) Issues
+If SSO redirect loop occurs:
+1. Clear browser cookies and cache for *.acme.com domains.
+2. Try an InPrivate/Incognito browser window.
+3. Verify your device is Entra ID (Azure AD) joined: run "dsregcmd /status" and confirm "AzureAdJoined: YES".
+4. If device shows "NO", contact IT for re-enrollment.
+
+==============================================================
+SECTION 2: SECURITY INCIDENT REPORTING
+==============================================================
+
+2.1 Reporting a Phishing Email
+If you receive a suspicious email:
+1. Do NOT click any links or download attachments.
+2. Click "Report Phishing" button in Outlook (IT Security plugin).
+3. If the button is unavailable, forward to phishing@acme.com with subject "PHISHING REPORT".
+4. Delete the email after reporting.
+5. If you accidentally clicked a link: immediately disconnect from network and call IT Security Hotline.
+
+2.2 Suspected Malware or Ransomware
+IMMEDIATE ACTIONS (within 5 minutes):
+1. Disconnect your device from all networks (unplug Ethernet, disable Wi-Fi, disconnect VPN).
+2. Do NOT power off the device — preserve forensic evidence.
+3. Call IT Security Hotline: +49-89-636-00000 (24/7) or use Teams to contact CISO team.
+4. Do NOT attempt to remove malware yourself.
+5. Complete Security Incident Form at https://itsecurity.acme.com/report.
+
+2.3 Unauthorized Access or Data Breach
+Report any suspected unauthorized access to systems or data immediately:
+- Contact: securityincident@acme.com
+- Priority escalation: Call +49-89-636-11111
+- Under GDPR, Acme must report confirmed data breaches within 72 hours.
+- Cooperation with investigation is mandatory per employment agreement.
+
+2.4 Lost or Stolen Device
+1. Immediately report to IT Helpdesk and your line manager.
+2. IT will trigger remote wipe within 30 minutes of report.
+3. File a police report if device was stolen (required for insurance).
+4. Submit incident at https://itsupport.acme.com → "Lost/Stolen Device".
+5. A temporary replacement device will be provisioned within 4 hours for critical roles.
+
+==============================================================
+SECTION 3: DATA CLASSIFICATION AND HANDLING
+==============================================================
+
+3.1 Data Classification Levels
+- PUBLIC: Freely shareable. No restrictions.
+- INTERNAL: Acme employees only. Do not share externally without approval.
+- CONFIDENTIAL: Limited distribution. Business-need basis. Encrypted in transit and at rest.
+- RESTRICTED: Highest protection. Access requires explicit approval from Data Owner and CISO.
+
+3.2 Sending Confidential Data
+- All confidential data must be encrypted before sending externally.
+- Use Acme SecureMail (available in Outlook plugin) for encrypted email.
+- Use SharePoint or OneDrive for Business for file sharing — not personal cloud storage.
+- USB devices are blocked on corporate devices since Q2 2023.
+
+3.3 Acceptable Use Policy
+- Corporate devices are for business use. Limited personal use is tolerated.
+- Prohibited: cryptocurrency mining, gaming, accessing illegal content, unauthorized cloud storage.
+- All device activity is monitored per local employment law and privacy notice.
+- Violation of AUP may result in disciplinary action including termination.
+
+==============================================================
+SECTION 4: PRIVILEGED ACCESS AND ADMIN ACCOUNTS
+==============================================================
+
+4.1 Requesting Elevated Privileges
+1. Submit Privileged Access Request via GRC Portal → PAM Module.
+2. Justify business need and duration (temporary access preferred).
+3. Approvals required: Line Manager + IT Security + System Owner.
+4. Privileged accounts are separated from standard user accounts (no email, no browser use).
+5. All privileged sessions are recorded via CyberArk Privileged Session Manager.
+
+4.2 Just-In-Time (JIT) Access
+For critical systems, Acme uses JIT access via CyberArk:
+- Access granted for duration of work session only (max 8 hours).
+- Request via CyberArk Self-Service Portal or via IT Helpdesk.
+- All commands executed in privileged session are logged and auditable.
+
+==============================================================
+SECTION 5: COMPLIANCE AND TRAINING
+==============================================================
+
+Annual Security Awareness Training: Mandatory for all employees. Deadline: December 31 each year.
+Completion tracked in Acme Learning Hub.
+Non-completion: Account access restrictions applied after 30-day grace period.
+
+GDPR Training: Mandatory for all employees handling personal data.
+Phishing Simulation: Monthly simulated phishing campaigns. Clicking simulated links triggers mandatory retraining.
+
+Contacts:
+- CISO Office: ciso@acme.com
+- Security Awareness: security-awareness@acme.com
+- Data Protection Officer: dataprotection@acme.com
+- IT Security Hotline (24/7): +49-89-636-00000

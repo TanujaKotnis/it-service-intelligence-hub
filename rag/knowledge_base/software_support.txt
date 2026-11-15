@@ -1,0 +1,109 @@
+ACME CORP – SOFTWARE SUPPORT AND INSTALLATION GUIDE
+Version 2.8 | Last Updated: November 2024
+Document Owner: End-User Computing Team
+
+==============================================================
+SECTION 1: SOFTWARE INSTALLATION AND REQUESTS
+==============================================================
+
+1.1 How to Request New Software
+All software must be approved before installation on corporate devices.
+Steps:
+1. Log in to the IT Self-Service Portal (https://itsupport.acme.com).
+2. Navigate to "Software Catalog" → "Request New Software".
+3. Search for the software by name. If listed, click "Request" and provide business justification.
+4. If not listed, fill out the "New Software Request" form with vendor details and license type.
+5. Approval is required from your line manager and IT Security.
+6. Approved software will be deployed via Microsoft Endpoint Configuration Manager (MECM).
+7. Standard approval SLA: 5 business days. Urgent requests: 24 hours with VP approval.
+
+1.2 Installing Approved Software via Software Center
+1. Open "Software Center" from the Start Menu.
+2. Navigate to "Applications" tab and find your approved software.
+3. Click "Install" and wait for deployment (do not restart until installation completes).
+4. If software does not appear in Software Center within 24 hours of approval, contact helpdesk.
+
+1.3 Microsoft 365 Applications
+Microsoft 365 (Word, Excel, PowerPoint, Teams, Outlook) is pre-installed on all corporate devices.
+To update: Open any Office application → File → Account → Update Options → Update Now.
+If apps are deactivated: Sign in with your corporate email (firstname.lastname@acme.com).
+Activation issues: Contact your local IT administrator for license reassignment.
+
+==============================================================
+SECTION 2: COMMON SOFTWARE ISSUES
+==============================================================
+
+2.1 SAP GUI Login Issues
+Symptoms: "RFC_ERROR_SYSTEM_FAILURE" or "Cannot connect to SAP server"
+Resolution:
+1. Verify you are connected to corporate network or VPN.
+2. Check that SAP GUI version is 7.60 or later (required from Q1 2024).
+3. Flush SAP cache: SAP Logon → Options → Local Data → Clean Up.
+4. Update SAP server configuration: IT Portal → SAP Systems → Download Latest Config.
+5. For authorization errors (SU53), submit an access request via GRC Portal.
+
+2.2 AutoCAD / NX / Solid Edge License Issues
+Symptoms: "License checkout failed" or "No license available"
+Resolution:
+1. Ensure concurrent license server is reachable: ping licenseserver.acme.com.
+2. Check license pool availability on the IT Portal → License Management.
+3. Release your held license if you are not actively using the application.
+4. If consistently unavailable, request a dedicated license through IT.
+
+2.3 Python / Development Environment Setup
+Acme employees requiring Python for data analysis should use:
+- Anaconda Distribution (available in Software Center)
+- Approved Python version: 3.10 or 3.11 (IT-supported)
+- Do NOT install Python from python.org without IT approval.
+- Virtual environments must be used for all projects.
+- For ML/AI workloads: request GPU instance via HPC Portal.
+
+2.4 Application Crashes or Performance Issues
+Resolution:
+1. Clear application cache (location varies by application — see vendor documentation).
+2. Check available disk space: minimum 10 GB free required for application performance.
+3. Update graphics drivers via Software Center (not from GPU vendor website directly).
+4. Collect crash logs from %AppData%\Local\CrashDumps and attach to helpdesk ticket.
+5. Run application as administrator to rule out permission issues.
+
+==============================================================
+SECTION 3: OPERATING SYSTEM ISSUES
+==============================================================
+
+3.1 Windows Update Problems
+Corporate devices receive updates via Windows Update for Business (WUfB).
+Policy: Updates are deployed in waves — Wave 1 (pilot) → Wave 2 (early adoption) → Wave 3 (all).
+Deferral: Updates can be deferred up to 30 days via IT Self-Service Portal.
+Failure to update after 90 days may result in device quarantine from corporate network.
+
+3.2 Windows Login Issues
+1. If password expired: change via Ctrl+Alt+Del or at passwordreset.acme.com.
+2. If account locked: call IT Helpdesk for immediate unlock (identity verification required).
+3. If Bitlocker recovery key requested: retrieve from https://aka.ms/myrecoverykey using personal Microsoft account linked at enrollment.
+
+==============================================================
+SECTION 4: PRINTER AND PERIPHERAL SUPPORT
+==============================================================
+
+4.1 Installing a Network Printer
+1. Open Settings → Printers & Scanners → Add a Printer.
+2. If printer not detected: click "The printer I want isn't listed" → Add by IP address.
+3. Enter printer IP (available on printer label or from your local IT admin).
+4. Driver will auto-install from Windows Update or IT driver repository.
+
+4.2 Printer Not Printing
+1. Check printer power and paper tray.
+2. Clear print queue: Control Panel → Devices and Printers → Right-click → See what's printing → Cancel all.
+3. Restart Print Spooler service: Run "services.msc" → Print Spooler → Restart.
+4. Reinstall printer driver via Device Manager.
+
+==============================================================
+SECTION 5: SELF-SERVICE RESOURCES
+==============================================================
+
+IT Self-Service Portal: https://itsupport.acme.com
+Knowledge Base: https://kb.acme-it.com
+Password Reset: https://passwordreset.acme.com
+MFA Management: https://aka.ms/mfasetup
+Software Catalog: https://software.acme-it.com
+IT Training Videos: https://learning.acme.com/it

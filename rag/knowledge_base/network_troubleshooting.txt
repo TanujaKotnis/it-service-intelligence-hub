@@ -1,0 +1,91 @@
+ACME CORP – IT NETWORK TROUBLESHOOTING GUIDE
+Version 3.2 | Last Updated: October 2024
+Document Owner: Global IT Operations
+
+==============================================================
+SECTION 1: VPN CONNECTIVITY ISSUES
+==============================================================
+
+1.1 Unable to Connect to Corporate VPN
+Symptoms: VPN client shows "Authentication failed" or "Connection timeout"
+Resolution Steps:
+1. Verify your Active Directory credentials are correct and not expired.
+2. Ensure Multi-Factor Authentication (MFA) is active on your mobile device.
+3. Check if your Cisco AnyConnect or GlobalProtect client is updated to the latest version.
+4. Restart the VPN client and try reconnecting.
+5. If issue persists, disable your local firewall temporarily and retry.
+6. Contact IT Helpdesk with error code for escalation. SLA: 4 hours for critical VPN issues.
+
+1.2 VPN Connects but Cannot Access Internal Resources
+Symptoms: VPN shows "Connected" but SharePoint, SAP, or internal portals are inaccessible.
+Resolution Steps:
+1. Clear DNS cache: open Command Prompt and run "ipconfig /flushdns".
+2. Disconnect and reconnect VPN to trigger DNS push.
+3. Try accessing resources via IP address to isolate DNS issues.
+4. Check if split-tunnel mode is enabled — some regions require full-tunnel mode.
+5. Submit ticket to Network Operations (NOC) team for routing table review.
+
+1.3 Slow VPN Performance
+Symptoms: High latency, slow file transfers, video call quality degraded.
+Resolution Steps:
+1. Test your local internet speed at an external site.
+2. Connect to the VPN gateway closest to your geographic location.
+3. Close bandwidth-intensive applications (streaming, large downloads) during work hours.
+4. Use wired Ethernet instead of Wi-Fi where possible.
+5. If performance < 10 Mbps on VPN, escalate to NOC with traceroute output.
+
+==============================================================
+SECTION 2: WI-FI AND NETWORK CONNECTIVITY
+==============================================================
+
+2.1 No Internet Access on Corporate Network
+Resolution Steps:
+1. Confirm network cable is securely connected (for wired connections).
+2. Run Windows Network Diagnostics (right-click network icon → Troubleshoot).
+3. Release and renew IP address: run "ipconfig /release" then "ipconfig /renew".
+4. Check if other devices on same network can access the internet.
+5. Restart your network adapter: Device Manager → Network Adapters → Disable/Enable.
+6. If on office Wi-Fi: check corporate firewall portal (Captive Portal) authentication.
+
+2.2 Cannot Connect to Corporate Wi-Fi (CORP-ACME SSID)
+Resolution Steps:
+1. Forget the network and reconnect using your corporate credentials.
+2. Ensure your device certificate is valid — expired certificates cause 802.1x failures.
+3. Contact your local IT administrator to re-enroll your device certificate.
+4. Temporary workaround: use wired connection while certificate is renewed.
+
+2.3 Network Drive Mapping Issues
+Symptoms: Mapped drives show as disconnected (red X) after login.
+Resolution Steps:
+1. Open File Explorer and attempt to reconnect by clicking the mapped drive.
+2. Use Group Policy update: run "gpupdate /force" in Command Prompt as admin.
+3. If VPN-connected, ensure you are on the correct domain before mapping.
+4. Script for reconnecting drives is available on the IT Self-Service Portal.
+
+==============================================================
+SECTION 3: EMAIL AND COLLABORATION
+==============================================================
+
+3.1 Outlook Not Receiving Emails
+Resolution Steps:
+1. Check junk/spam folder and Focused Inbox settings.
+2. Ensure Outlook is not in Work Offline mode (Send/Receive tab).
+3. Remove and re-add your email account profile in Outlook settings.
+4. Check mailbox quota — if >95% full, emails will bounce. Request a quota increase.
+5. Run Microsoft Support and Recovery Assistant (SaRA) for automated diagnosis.
+
+3.2 Teams Meeting Audio/Video Not Working
+Resolution Steps:
+1. Check microphone and camera permissions in Windows Settings → Privacy.
+2. Set the correct audio device in Teams Settings → Devices.
+3. Update Teams to the latest version via Microsoft Store or IT Software Center.
+4. Run the Teams Meeting Diagnostic from Microsoft 365 Admin Center.
+
+==============================================================
+SECTION 4: ESCALATION CONTACTS
+==============================================================
+
+Level 1 (Self-Service): IT Self-Service Portal → https://itsupport.acme.com
+Level 2 (Helpdesk): IT Helpdesk → 0800-ACME-IT (Mon–Fri 7am–8pm CET)
+Level 3 (NOC): Network Operations Center → noc@acme.com (24/7 for critical issues)
+Major Incident: IT Incident Management → itim@acme.com | Priority: P1/P2 only

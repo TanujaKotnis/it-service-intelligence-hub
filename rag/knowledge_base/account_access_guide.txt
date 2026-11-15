@@ -1,0 +1,120 @@
+ACME CORP – ACCOUNT ACCESS AND IDENTITY MANAGEMENT GUIDE
+Version 2.5 | Last Updated: October 2024
+Document Owner: Identity and Access Management (IAM) Team
+
+==============================================================
+SECTION 1: ACCOUNT SETUP AND ONBOARDING
+==============================================================
+
+1.1 New Employee Account Activation
+Your corporate account is created 2 business days before your start date.
+You will receive your credentials via secure SMS to your registered mobile number.
+First login steps:
+1. Go to https://login.acme.com and enter your temporary password.
+2. You will be prompted to set a new password meeting policy requirements.
+3. Register your MFA device immediately at https://aka.ms/mfasetup.
+4. Install mandatory software from Software Center within 48 hours.
+5. Complete security awareness training within your first week.
+
+1.2 Corporate Email Naming Convention
+Email format: firstname.lastname@acme.com
+For duplicate names: firstname.middleinitial.lastname@acme.com
+Alias: Employees may request up to 2 aliases via IAM Portal.
+Display name changes: Submit request via HR → IT will update within 5 business days.
+
+==============================================================
+SECTION 2: PASSWORD MANAGEMENT
+==============================================================
+
+2.1 Self-Service Password Reset
+To reset your password without calling helpdesk:
+1. Go to https://passwordreset.acme.com.
+2. Enter your corporate email and verify with MFA.
+3. Choose reset method: answer security questions OR use MFA verification.
+4. Set a new password meeting all complexity requirements.
+5. After reset, update your password in Outlook, Teams, and other cached applications.
+
+2.2 Password Synchronization Issues
+If password change doesn't sync across all systems (SAP, VPN, Citrix):
+1. Wait 15 minutes for Active Directory replication.
+2. Lock and unlock your Windows session to force credential refresh.
+3. For SAP: change SAP password separately via SAP Logon → Extras → Change Password.
+4. For VPN: reconnect VPN client using new credentials after AD replication.
+
+2.3 Account Lockout
+Your account locks after 5 failed login attempts.
+Automatic unlock: After 30 minutes of no failed attempts.
+Immediate unlock: Call IT Helpdesk (identity verification via mobile OTP required).
+Repeated lockouts: May indicate compromised credentials — contact IT Security.
+
+==============================================================
+SECTION 3: ACCESS REQUESTS AND PERMISSIONS
+==============================================================
+
+3.1 Requesting Access to Systems or Applications
+All system access requests must follow the access provisioning process:
+1. Submit request via GRC Portal (https://grc.acme.com) → Access Request.
+2. Select the system, role, and access level required.
+3. Provide business justification (minimum 50 words).
+4. Approvals: Line Manager → System Owner → Security (for sensitive systems).
+5. Standard SLA: 3 business days. Critical business requests: 24 hours with VP sponsorship.
+
+3.2 Role-Based Access Control (RBAC)
+Acme uses RBAC across all major systems:
+- Access is granted based on job role, not individual request by default.
+- Role assignments are reviewed quarterly by system owners.
+- When changing roles/departments, old access is revoked within 30 days.
+- Emergency access (break-glass): available for critical operational needs via IAM Portal.
+
+3.3 Shared Mailboxes and Distribution Lists
+To request a shared mailbox:
+1. IT Self-Service Portal → Email Services → Request Shared Mailbox.
+2. Specify mailbox name, purpose, and list of members.
+3. SLA: 2 business days.
+
+To add/remove members from distribution list:
+- Group owners can manage membership via Outlook → Address Book → Distribution List → Properties.
+- For IT-managed groups: submit request via IAM Portal.
+
+==============================================================
+SECTION 4: REMOTE AND MOBILE ACCESS
+==============================================================
+
+4.1 Mobile Device Management (MDM)
+All devices accessing corporate email or data must be enrolled in Microsoft Intune:
+- Personal devices: Enroll via Company Portal app (BYOD policy).
+- Corporate devices: Auto-enrolled at setup.
+- BYOD devices: Only corporate data is managed; personal data is not accessible by IT.
+
+4.2 Remote Desktop Access
+Citrix Virtual Desktop: Available for employees requiring remote access to desktop.
+Access: https://citrix.acme.com
+Requirements:
+- Must be on corporate VPN or have Citrix Gateway certificate.
+- MFA required for every session.
+- Sessions automatically terminate after 8 hours of inactivity.
+
+4.3 Microsoft Authenticator App Setup
+1. Download Microsoft Authenticator from App Store / Google Play.
+2. Go to https://aka.ms/mfasetup and sign in with corporate credentials.
+3. Click "Add method" → "Authenticator app" → scan QR code.
+4. Test by signing out and signing back in.
+5. For lost/new phone: call IT Helpdesk for emergency bypass and re-enrollment.
+
+==============================================================
+SECTION 5: OFFBOARDING AND ACCOUNT DEPROVISIONING
+==============================================================
+
+Upon resignation or termination:
+- Account access is revoked on last day of employment.
+- 30-day email forwarding may be configured (manager request required).
+- Personal data must be removed by employee before last day.
+- Corporate devices must be returned within 5 business days of exit.
+- Former employees retain access to payslips via ex-employee self-service portal for 1 year.
+
+Contacts:
+- IAM Team: iam@acme.com
+- HR Systems: hr-systems@acme.com
+- IT Helpdesk: 0800-ACME-IT | https://itsupport.acme.com
+- Password Reset: https://passwordreset.acme.com
+- MFA Setup: https://aka.ms/mfasetup
