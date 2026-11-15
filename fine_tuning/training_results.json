@@ -1,0 +1,29 @@
+{
+  "base_model": "distilbert-base-uncased",
+  "num_labels": 7,
+  "train_samples": 406,
+  "val_samples": 102,
+  "epochs": 3,
+  "final_accuracy": 0.5686,
+  "final_f1_macro": 0.1449,
+  "train_loss": 1.5502,
+  "train_runtime_s": 57.8,
+  "label2id": {
+    "network_connectivity": 0,
+    "software_installation": 1,
+    "hardware_malfunction": 2,
+    "security_incident": 3,
+    "account_access": 4,
+    "email_issues": 5,
+    "printer_problems": 6
+  },
+  "id2label": {
+    "0": "network_connectivity",
+    "1": "software_installation",
+    "2": "hardware_malfunction",
+    "3": "security_incident",
+    "4": "account_access",
+    "5": "email_issues",
+    "6": "printer_problems"
+  }
+}

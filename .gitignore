@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.venv/
+
+# Model weights (too large for GitHub — host on HuggingFace Hub if needed)
+*.safetensors
+*.bin
+*.pt
+*.pth
+fine_tuning/saved_model/checkpoint-*/
+
+# Misc
+.DS_Store

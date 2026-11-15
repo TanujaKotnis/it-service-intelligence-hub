@@ -64,7 +64,7 @@ def train():
 
     # Load dataset
     print("\n[1/4] Generating dataset...")
-    dataset = build_dataset(samples_per_class=20)
+    dataset = build_dataset(printer_samples=20)
     print(f"  Train: {len(dataset['train'])} samples")
     print(f"  Val:   {len(dataset['validation'])} samples")
 
@@ -83,32 +83,36 @@ def train():
         label2id=LABEL2ID,
     )
 
-    # Training arguments
+    # Training arguments — handle renamed param across transformers versions
+    import transformers as _tf
+    _new_api = tuple(int(x) for x in _tf.__version__.split(".")[:2]) >= (4, 46)
+    _strat = {"eval_strategy": "epoch"} if _new_api else {"evaluation_strategy": "epoch"}
     args = TrainingArguments(
         output_dir=str(OUTPUT_DIR),
-        num_train_epochs=5,
+        num_train_epochs=3,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
         learning_rate=2e-5,
         weight_decay=0.01,
-        warmup_ratio=0.1,
-        evaluation_strategy="epoch",
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1_macro",
         logging_steps=10,
         report_to="none",
         fp16=False,
+        **_strat,
     )
 
+    _new_api = tuple(int(x) for x in _tf.__version__.split(".")[:2]) >= (4, 46)
+    _tok_kwarg = {"processing_class": tokenizer} if _new_api else {"tokenizer": tokenizer}
     trainer = Trainer(
         model=model,
         args=args,
         train_dataset=tokenized["train"],
         eval_dataset=tokenized["validation"],
-        tokenizer=tokenizer,
         data_collator=data_collator,
         compute_metrics=compute_metrics,
+        **_tok_kwarg,
     )
 
     # Train
