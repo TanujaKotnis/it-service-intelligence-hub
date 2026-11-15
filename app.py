@@ -372,7 +372,7 @@ def tab_rag_chatbot():
             sources = result["sources"]
             context = result.get("context_used", "")[:800]
 
-            if confidence < 10:
+            if confidence < 1:
                 answer = (
                     "I couldn't find a precise answer in the knowledge base. "
                     "Please contact the IT Helpdesk directly at "
